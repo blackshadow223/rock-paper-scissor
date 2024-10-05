@@ -1,7 +1,7 @@
 // Create a function to return a choice of Rock Paper or Scissor
 function getComputerChoice() {
     // Create variable randomNumber to hold a random number from 0 to 5
-    let randomNumber = Math.round(Math.random() * 5);
+    let randomNumber = Math.floor(Math.random() * 5);
     // Check and return Rock Paper or Scissor if the number happens to be 1, 2 or 3. If not, run the function again
     if (randomNumber === 0 || randomNumber === 4 || randomNumber === 5) {
         return getComputerChoice();
@@ -73,3 +73,41 @@ function playRound(humanChoice, computerChoice) {
             return true;
     }
 }
+
+// Create a function to play the game for 5 rounds and declare the winner or loser in the end
+function playGame() {
+    // Create a variable scoreHuman to keep record of the score of our user and initialize it to 0
+    let scoreHuman = 0;
+    // Create a variable keepGoing in order to keep record of whether the user wants to continue playing or abort
+    let keepGoing = true;
+    // Ask the user to play or stop.
+    keepGoing = confirm("The very fate of the world hangs in the balance, would you play a small game to save the world, human?");
+    // Create a variable round to keep record of the current round in the game
+    let round = 0;
+    // While either the user wins or loses the entire game, keep looping and going over rounds.
+    while (keepGoing) {
+        alert(`Round ${++round}`);
+        // Commence the Game and increment scoreHuman if the user wins
+        if (playRound(getHumanChoice(), getComputerChoice())) {
+            ++scoreHuman;
+        }
+
+        // If round 5 is reached, display the winner or loser banner and ask to keep going or end the game.
+        if (round === 5) {
+            if (scoreHuman >= 3) {
+                alert(`Yay!!! Your score is ${scoreHuman}\n\nYou win the game from these tins! The world is saved.`);
+            } else {
+                alert(`Booo!!! Computer's score is ${round - scoreHuman}\n\nYou lose the game, computers will rule the world now. Hahahahaha!`);
+            }
+
+            keepGoing = confirm("Would you like to play the game again and save the world?");
+            if (keepGoing) {
+                scoreHuman = 0;
+                round = 0;
+            }
+        }
+    }
+}
+
+const save_btn = document.querySelector("#save-btn");
+save_btn.addEventListener("click", playGame);
