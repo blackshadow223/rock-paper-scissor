@@ -42,34 +42,34 @@ function playRound(humanChoice, computerChoice) {
         case "rock":
             // Paper beats Rock
             if (computerChoice === "paper") {
-                alert("The computer chose Paper\n\nPaper beats Rock. You lose.");
+                alert("The computer chose Paper\n\nPaper beats Rock. You lose this round.");
                 return false;
             }
 
             // Rock beats Scissor (the next natural possible response from the computer is Scissor)
-            alert("The computer chose Scissor\n\nRock beats Scissor. You win.");
+            alert("The computer chose Scissor\n\nRock beats Scissor. You win this round.");
             return true;
         
         case "paper":
             // Paper beats Rock
             if (computerChoice === "rock") {
-                alert("The computer chose Rock\n\nPaper beats Rock. You win.");
+                alert("The computer chose Rock\n\nPaper beats Rock. You win this round.");
                 return true;
             }
 
             // Scissor beats Rock (the next natural possible response from the computer is Scissor)
-            alert("The computer chose Scissor\n\nScissor beats Paper. You lose.");
+            alert("The computer chose Scissor\n\nScissor beats Paper. You lose this round.");
             return false;
         
         case "scissor":
             // Rock beats Scissor
             if (computerChoice === "rock") { 
-                alert("The computer chose Rock\n\nRock beats Scissor. You lose.");
+                alert("The computer chose Rock\n\nRock beats Scissor. You lose this round.");
                 return false;
             }
 
             // Scissor beats Paper (the next natural possible response from the computer is paper)
-            alert("The computer chose Paper\n\nScissor beats Paper. You win.");
+            alert("The computer chose Paper\n\nScissor beats Paper. You win this round.");
             return true;
     }
 }
