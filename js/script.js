@@ -13,3 +13,17 @@ function getComputerChoice() {
         return "paper";
     }
 }
+
+// Create a function to get a choice between Rock Paper or Scissor from the user
+function getHumanChoice() {
+    // Create a variable choice to hold an input from the user and convert the result to lower case for maximum compatibility
+    let choice = prompt("Your turn: Rock, Paper or Scissor? ");
+    choice = (choice === null) ? "" : choice.toLowerCase();
+    // Check to see whether the input is valid and if it is valid, then return it. If not, run the function again
+    if (choice === "rock" || choice === "paper" || choice === "scissor") {
+        return choice;
+    } else {
+        alert("Invalid input. Please enter either rock, paper or scissor.");
+        return getHumanChoice();
+    }
+}
