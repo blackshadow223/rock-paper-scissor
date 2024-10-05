@@ -27,3 +27,49 @@ function getHumanChoice() {
         return getHumanChoice();
     }
 }
+
+// Create a function to play a single round of Rock Paper Scissor that takes in 2 parameters of human and computer choices
+function playRound(humanChoice, computerChoice) {
+    // Check who wins in the battle, and based on that return a true if the human wins, and a false if the computer wins
+    // If humanChoice and computerChoice is the same, the natural conclusion is draw. Run the function again.
+    if (humanChoice === computerChoice) {
+        alert("It's a draw. Do it again!");
+        return playRound(getHumanChoice(), getComputerChoice());
+    }
+
+    // Each choice of the user has two consequences, either they win, or they lose. This switch does the job.
+    switch (humanChoice) {
+        case "rock":
+            // Paper beats Rock
+            if (computerChoice === "paper") {
+                alert("The computer chose Paper\n\nPaper beats Rock. You lose.");
+                return false;
+            }
+
+            // Rock beats Scissor (the next natural possible response from the computer is Scissor)
+            alert("The computer chose Scissor\n\nRock beats Scissor. You win.");
+            return true;
+        
+        case "paper":
+            // Paper beats Rock
+            if (computerChoice === "rock") {
+                alert("The computer chose Rock\n\nPaper beats Rock. You win.");
+                return true;
+            }
+
+            // Scissor beats Rock (the next natural possible response from the computer is Scissor)
+            alert("The computer chose Scissor\n\nScissor beats Paper. You lose.");
+            return false;
+        
+        case "scissor":
+            // Rock beats Scissor
+            if (computerChoice === "rock") { 
+                alert("The computer chose Rock\n\nRock beats Scissor. You lose.");
+                return false;
+            }
+
+            // Scissor beats Paper (the next natural possible response from the computer is paper)
+            alert("The computer chose Paper\n\nScissor beats Paper. You win.");
+            return true;
+    }
+}
