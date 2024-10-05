@@ -1,6 +1,6 @@
 # rock-paper-scissor
 
-Welcome to ~~testing~~ learning grounds for Rock Paper Scissor using Javascript by yours truly. Here, I have come again to flex my skills of web development that I just so happened to pick up thanks to TOP. As you are already, this is my **third** project on TOP to demonstrate the skills I *should* have acquired after all the intense training TOP made me go through.
+Welcome to ~~testing~~ learning grounds for Rock Paper Scissor using Javascript by yours truly. Here, I have come again to flex my skills of web development that I just so happened to pick up thanks to TOP. As you are already aware, this is my **third** project on TOP to demonstrate the skills I *should* have acquired after all the intense training TOP made me go through.
 
 Let us see whether I live up to the expectations or not.
 
