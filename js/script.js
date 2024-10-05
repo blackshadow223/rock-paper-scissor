@@ -78,12 +78,12 @@ function playRound(humanChoice, computerChoice) {
 function playGame() {
     // Create a variable scoreHuman to keep record of the score of our user and initialize it to 0
     let scoreHuman = 0;
+    // Create a variable round to keep record of the current round in the game
+    let round = 0;
     // Create a variable keepGoing in order to keep record of whether the user wants to continue playing or abort
     let keepGoing = true;
     // Ask the user to play or stop.
     keepGoing = confirm("The very fate of the world hangs in the balance, would you play a small game to save the world, human?");
-    // Create a variable round to keep record of the current round in the game
-    let round = 0;
     // While either the user wins or loses the entire game, keep looping and going over rounds.
     while (keepGoing) {
         alert(`Round ${++round}`);
@@ -92,7 +92,7 @@ function playGame() {
             ++scoreHuman;
         }
 
-        // If round 5 is reached, display the winner or loser banner and ask to keep going or end the game.
+        // If round 5 is reached, display the winner or loser banner and ask to keep going or end the game
         if (round === 5) {
             if (scoreHuman >= 3) {
                 alert(`Yay!!! Your score is ${scoreHuman}\n\nYou win the game from these tins! The world is saved.`);
