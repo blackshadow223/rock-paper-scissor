@@ -6,9 +6,31 @@
         <title>Rock Paper Scissor</title>
     </head>
     <body>
-        <h1>You won't find anything here. Head to console. Everything is there.</h1>
-        <p>Run the function playGame() to be able to play the game or click the button below.</p>
-        <button id="save-btn">Save the World!</button>
+        <h1><del>You won't find anything here. Head to console. Everything is there.</del></h1>
+        <p><del>Run the function playGame() to be able to play the game or click the button below.</del></p>
+        <hr>
+
+        <p>Here is a small constructed body to start playing temporarily: </p>
+        <div class="game">
+            <div class="gameAnalaytics">
+                <h2>Round <span id="roundUI">0</span></h2>
+                <h2>Score: <span id="scoreUI">0</span></h2>
+            </div>
+            <hr>
+            <div class="gameBody">
+                <div class="playerBody">
+                    <div class="userBody"></div>
+                    <div class="gameActions"></div>
+                    <div class="computerBody"></div>
+                </div>
+                <div class="playerActions">
+                    <button>Rock</button>
+                    <button>Paper</button>
+                    <button>Scissor</button>
+                </div>
+            </div>
+            <hr>
+        </div>
     </body>
     <script src="js/script.js"></script>
 </html>

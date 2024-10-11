@@ -31,10 +31,11 @@ function getHumanChoice() {
 // Create a function to play a single round of Rock Paper Scissor that takes in 2 parameters of human and computer choices
 function playRound(humanChoice, computerChoice) {
     // Check who wins in the battle, and based on that return a true if the human wins, and a false if the computer wins
-    // If humanChoice and computerChoice is the same, the natural conclusion is draw. Run the function again.
+    // If humanChoice and computerChoice is the same, the natural conclusion is draw. Return "draw".
+    console.log(`Human Choice: ${humanChoice}, Computer Choice: ${computerChoice}`);
     if (humanChoice === computerChoice) {
         alert("It's a draw. Do it again!");
-        return playRound(getHumanChoice(), getComputerChoice());
+        return "draw";
     }
 
     // Each choice of the user has two consequences, either they win, or they lose. This switch does the job.
@@ -49,7 +50,7 @@ function playRound(humanChoice, computerChoice) {
             // Rock beats Scissor (the next natural possible response from the computer is Scissor)
             alert("The computer chose Scissor\n\nRock beats Scissor. You win this round.");
             return true;
-        
+
         case "paper":
             // Paper beats Rock
             if (computerChoice === "rock") {
@@ -60,10 +61,10 @@ function playRound(humanChoice, computerChoice) {
             // Scissor beats Rock (the next natural possible response from the computer is Scissor)
             alert("The computer chose Scissor\n\nScissor beats Paper. You lose this round.");
             return false;
-        
+
         case "scissor":
             // Rock beats Scissor
-            if (computerChoice === "rock") { 
+            if (computerChoice === "rock") {
                 alert("The computer chose Rock\n\nRock beats Scissor. You lose this round.");
                 return false;
             }
@@ -109,5 +110,32 @@ function playGame() {
     }
 }
 
-const save_btn = document.querySelector("#save-btn");
-save_btn.addEventListener("click", playGame);
+let scoreHuman = 0;
+let round = 0;
+
+const roundUI = document.querySelector("#roundUI");
+const scoreUI = document.querySelector("#scoreUI");
+const userUI = document.querySelector(".userBody");
+const computerUI = document.querySelector(".computerBody");
+
+const actions = document.querySelector(".playerActions");
+actions.addEventListener("click", newPlayGame);
+
+function newPlayGame(event) {
+    roundUI.textContent = ++round;
+    console.log(round, scoreHuman);
+
+    let humanSelection = event.target.textContent.toLowerCase();
+    let computerSelection = getComputerChoice();
+    
+    userUI.textContent = `You chose ${humanSelection}`;
+    computerUI.textContent = `I chose ${computerSelection}`;
+    
+    play = playRound(humanSelection, computerSelection);
+    
+    if (play === "draw") {
+        --round;
+    } else if (play) {
+        scoreUI.textContent = ++scoreHuman;
+    }
+}
