@@ -34,7 +34,7 @@ function playRound(humanChoice, computerChoice) {
     // If humanChoice and computerChoice is the same, the natural conclusion is draw. Return "draw".
     console.log(`Human Choice: ${humanChoice}, Computer Choice: ${computerChoice}`);
     if (humanChoice === computerChoice) {
-        alert("It's a draw. Do it again!");
+        console.log("It's a draw. Do it again!");
         return "draw";
     }
 
@@ -43,34 +43,34 @@ function playRound(humanChoice, computerChoice) {
         case "rock":
             // Paper beats Rock
             if (computerChoice === "paper") {
-                alert("The computer chose Paper\n\nPaper beats Rock. You lose this round.");
+                console.log("The computer chose Paper\n\nPaper beats Rock. You lose this round.");
                 return false;
             }
 
             // Rock beats Scissor (the next natural possible response from the computer is Scissor)
-            alert("The computer chose Scissor\n\nRock beats Scissor. You win this round.");
+            console.log("The computer chose Scissor\n\nRock beats Scissor. You win this round.");
             return true;
 
         case "paper":
             // Paper beats Rock
             if (computerChoice === "rock") {
-                alert("The computer chose Rock\n\nPaper beats Rock. You win this round.");
+                console.log("The computer chose Rock\n\nPaper beats Rock. You win this round.");
                 return true;
             }
 
             // Scissor beats Rock (the next natural possible response from the computer is Scissor)
-            alert("The computer chose Scissor\n\nScissor beats Paper. You lose this round.");
+            console.log("The computer chose Scissor\n\nScissor beats Paper. You lose this round.");
             return false;
 
         case "scissor":
             // Rock beats Scissor
             if (computerChoice === "rock") {
-                alert("The computer chose Rock\n\nRock beats Scissor. You lose this round.");
+                console.log("The computer chose Rock\n\nRock beats Scissor. You lose this round.");
                 return false;
             }
 
             // Scissor beats Paper (the next natural possible response from the computer is paper)
-            alert("The computer chose Paper\n\nScissor beats Paper. You win this round.");
+            console.log("The computer chose Paper\n\nScissor beats Paper. You win this round.");
             return true;
     }
 }
@@ -125,7 +125,7 @@ function newPlayGame(event) {
     roundUI.textContent = ++round;
     console.log(round, scoreHuman);
 
-    let humanSelection = event.target.textContent.toLowerCase();
+    let humanSelection = event.target.id;
     let computerSelection = getComputerChoice();
     
     userUI.textContent = `You chose ${humanSelection}`;
@@ -135,6 +135,7 @@ function newPlayGame(event) {
     
     if (play === "draw") {
         --round;
+        return;
     } else if (play) {
         scoreUI.textContent = ++scoreHuman;
     }
