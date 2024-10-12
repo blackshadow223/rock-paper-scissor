@@ -1,17 +1,19 @@
 // Create a function to return a choice of Rock Paper or Scissor
 function getComputerChoice() {
-    // Create variable randomNumber to hold a random number from 0 to 5
-    let randomNumber = Math.floor(Math.random() * 5);
-    // Check and return Rock Paper or Scissor if the number happens to be 1, 2 or 3. If not, run the function again
-    if (randomNumber === 1) {
+    // Create variable randomNumber to hold a random number from 0 to 12
+    let randomNumber = Math.floor(Math.random() * 12);
+    // Check and return Rock Paper or Scissor if the number happens to be 3, 5 or 7. If not, run the function again
+    if (randomNumber === 3) {
         return "rock";
-    } else if (randomNumber === 2) {
+    } else if (randomNumber === 5) {
         return "scissor";
-    } else if (randomNumber === 3) {
+    } else if (randomNumber === 7) {
         return "paper";
     } else {
         return getComputerChoice();
     }
+    // The reason for this configuration is to maximize the random nature of the choice
+    // But right now, it feels nothing more than a desperate attempt to me
 }
 
 // Create a function to get a choice between Rock Paper or Scissor from the user
@@ -114,29 +116,52 @@ let scoreHuman = 0;
 let round = 0;
 
 const roundUI = document.querySelector("#roundUI");
-const scoreUI = document.querySelector("#scoreUI");
-const userUI = document.querySelector(".userBody");
-const computerUI = document.querySelector(".computerBody");
+const scoreHumanUI = document.querySelector("#scoreHumanUI");
+const scoreComputerUI = document.querySelector("#scoreComputerUI");
+const playerChoiceUI = document.querySelector("#playerChoiceUI");
+const computerChoiceUI = document.querySelector("#computerChoiceUI");
+const messageUI = document.querySelector("#messageUI");
 
 const actions = document.querySelector(".playerActions");
 actions.addEventListener("click", newPlayGame);
 
 function newPlayGame(event) {
+    // If the right button is not chosen, don't do anything.
+    if (!event.target.id) return;
+
     roundUI.textContent = ++round;
-    console.log(round, scoreHuman);
 
     let humanSelection = event.target.id;
     let computerSelection = getComputerChoice();
     
-    userUI.textContent = `You chose ${humanSelection}`;
-    computerUI.textContent = `I chose ${computerSelection}`;
+    playerChoiceUI.textContent = `You chose ${humanSelection}`;
+    computerChoiceUI.textContent = `I chose ${computerSelection}`;
     
     play = playRound(humanSelection, computerSelection);
     
     if (play === "draw") {
         --round;
+        messageUI.textContent = "It's a draw! Do it again.";
         return;
-    } else if (play) {
-        scoreUI.textContent = ++scoreHuman;
+    } else if (play) { // Human Wins
+        scoreHumanUI.textContent = ++scoreHuman;
+        messageUI.textContent = "You won this round!";
+    } else { // Computer Wins
+        scoreComputerUI.textContent = round - scoreHuman;
+        messageUI.textContent = "The Machine won this round!";
+    }
+
+    if (round === 5) {
+        if (scoreHuman >= 3) {
+            messageUI.textContent = "Congratulations!!! You win this game from those tins!";
+        } else {
+            messageUI.textContent = "Booo!!! The Machines Win and Rule! Yeah-hooo!!!";
+        }
+
+        round = 0;
+        scoreHuman = 0;
+        roundUI.textContent = round;
+        scoreHumanUI.textContent = scoreHuman;
+        scoreComputerUI.textContent = 0;
     }
 }

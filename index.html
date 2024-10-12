@@ -12,16 +12,25 @@
 
         <p>Here is a small constructed body to start playing temporarily: </p>
         <div class="game">
-            <div class="gameAnalaytics">
-                <h2>Round <span id="roundUI">0</span></h2>
-                <h2>Score: <span id="scoreUI">0</span></h2>
-            </div>
+            <h2>Round <span id="roundUI">0</span></h2>
             <hr>
             <div class="gameBody">
-                <div class="playerBody">
-                    <div class="userBody"></div>
-                    <div class="gameActions"></div>
-                    <div class="computerBody"></div>
+                <div class="gameAnalytics">
+                    <div class="playerBody">
+                        <h1>You:</h1>
+                        <h2>Score: <span id="scoreHumanUI">0</span></h2>
+                        <p id="playerChoiceUI">Here comes your choice</p>
+                    </div>
+                    <hr> <!-- Temporary -->
+                    <div class="gameActions">
+                        <h2 id="messageUI">Will you save the world?</h2> <!-- Temporarily <h2>, normally <p>-->
+                    </div>
+                    <hr> <!-- Temporary -->
+                    <div class="computerBody">
+                        <h1>The Computers:</h1>
+                        <h2>Score: <span id="scoreComputerUI">0</span></h2>
+                        <p id="computerChoiceUI">Here comes the computer's choice</p>
+                    </div>
                 </div>
                 <div class="playerActions">
                     <button id="rock">Rock</button>
