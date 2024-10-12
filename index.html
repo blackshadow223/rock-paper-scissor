@@ -6,13 +6,9 @@
         <title>Rock Paper Scissor</title>
     </head>
     <body>
-        <h1><del>You won't find anything here. Head to console. Everything is there.</del></h1>
-        <p><del>Run the function playGame() to be able to play the game or click the button below.</del></p>
-        <hr>
-
         <p>Here is a small constructed body to start playing temporarily: </p>
         <div class="game">
-            <h2>Round <span id="roundUI">0</span></h2>
+            <h1>Round <span id="roundUI">0</span></h1>
             <hr>
             <div class="gameBody">
                 <div class="gameAnalytics">
@@ -21,24 +17,26 @@
                         <h2>Score: <span id="scoreHumanUI">0</span></h2>
                         <p id="playerChoiceUI">Here comes your choice</p>
                     </div>
-                    <hr> <!-- Temporary -->
+                    <hr>
                     <div class="gameActions">
-                        <h2 id="messageUI">Will you save the world?</h2> <!-- Temporarily <h2>, normally <p>-->
+                        <p id="messageUI">Will you save the world?</p>
                     </div>
-                    <hr> <!-- Temporary -->
+                    <hr>
                     <div class="computerBody">
                         <h1>The Computers:</h1>
                         <h2>Score: <span id="scoreComputerUI">0</span></h2>
                         <p id="computerChoiceUI">Here comes the computer's choice</p>
                     </div>
                 </div>
+                <hr>
                 <div class="playerActions">
                     <button id="rock">Rock</button>
                     <button id="paper">Paper</button>
                     <button id="scissor">Scissor</button>
+                    <br><hr>
+                    <button id="reset">Reset</button>
                 </div>
             </div>
-            <hr>
         </div>
     </body>
     <script src="js/script.js"></script>
