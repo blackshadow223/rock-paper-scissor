@@ -19,4 +19,5 @@ Something I already know is that I will get better as I do more and gain more ex
 ---
 
 In any case, I'll try my best moving forward. I will finish TOP to its last bit.
+I have done my best.
 
